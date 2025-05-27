@@ -49,9 +49,13 @@ $ docker run --rm -v $TEST_BASE/test-apps/flutils:/input:ro -v /tmp/flutils-out:
     --module-name flutils.packages --output-path /output  --report-dir /output --maximum_search_time 120 \
     --output_variables TargetModule,CoverageTimeline --coverage_metrics BRANCH,LINE  --assertion-generation NONE \
     --algorithm CODAMOSA -v --include-partially-parsable True --allow-expandable-cluster True \
-    --uninterpreted_statements ONLY --temperature 0.8 --model_name code-davinci-002 --authorization-key $AUTH_KEY"
+    --uninterpreted_statements ONLY --temperature 0.8 --model_name code-davinci-002 --authorization-key $AUTH_KEY
+    --model_base_url <BASE_URL> --model_relative_url <RELATIVE_URL>"
 ```
 Note (June 2024): the model `code-davinci-002` is no longer available, you will need to update the command with a model you have access to. 
+
+The `--model_base_url <BASE_URL> --model_relative_url <RELATIVE_URL>` options should be set so that the concatenation of the two is the URL to send model query requests to (see #29). 
+
 
 ## Replication package
 
