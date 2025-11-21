@@ -74,7 +74,7 @@ then
 fi
 
 # Install dependencies by installing the package
-pip install -r "${PACKAGE_DIR}/package.txt"
+bash "${PACKAGE_DIR}/install.sh"
 
 # Execute Pynguin with all arguments passed to this script
 echo "Running: pynguin $@"
