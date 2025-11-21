@@ -37,7 +37,7 @@ FROM python:3.10.2-slim-bullseye AS execute
 
 # Set environment variables
 # Set the Pynguin version
-ENV PYNGUIN_VERSION "0.44.0"
+ENV PYNGUIN_VERSION "0.19.0"
 # Pynguin requires to set the variable to show it that the user is aware that running
 # Pynguin executes third-party code, which could cause arbitrary harm to the system.
 # By setting the variable, the user acknowledges that they are aware of this.  In the
@@ -58,7 +58,7 @@ WORKDIR /pynguin
 COPY --from=build /pynguin-build/dist/pynguin-$PYNGUIN_VERSION.tar.gz .
 COPY --from=build /pynguin-build/pynguin-docker.sh .
 
-RUN pip install /pynguin/pynguin-$PYNGUIN_VERSION.tar.gz
+RUN pip install pynguin
 
 ENTRYPOINT ["/pynguin/pynguin-docker.sh"]
 CMD []
