@@ -58,7 +58,7 @@ WORKDIR /pynguin
 COPY --from=build /pynguin-build/dist/pynguin-$PYNGUIN_VERSION.tar.gz .
 COPY --from=build /pynguin-build/pynguin-docker.sh .
 
-RUN pip install pynguin
+RUN pip install /pynguin/pynguin-$PYNGUIN_VERSION.tar.gz
 
 ENTRYPOINT ["/pynguin/pynguin-docker.sh"]
 CMD []
